@@ -5,11 +5,13 @@ public class Employee  {
     private Integer departmentId;
     private static Integer idCounter = 1;
 
+
     public Employee(String fullName, Integer salary, Integer departmentId) {
         this.id = idCounter++;
         this.fullName = fullName;
         this.salary = salary;
         this.departmentId = departmentId;
+
     }
 
     public Integer getId() {
@@ -48,4 +50,7 @@ public class Employee  {
                 ", departmentId=" + departmentId +
                 '}';
     }
-}
+
+
+    }
+

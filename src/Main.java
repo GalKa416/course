@@ -2,30 +2,101 @@ public class Main {
  public static void main(String[] args) {
   System.out.println("Hello world!");
 
-  Employee[] employeeBook = new Employee[10];
-  Employee employee1 = new Employee("Иванов Иван Петрович", 93, 1);
-  Employee employee2 = new Employee("Иванова  Мария Петровна", 77, 2);
-  Employee employee3 = new Employee("Петров Иван Иванович", 132, 4);
-  Employee employee4 = new Employee("Васильев Петр Иванович", 57, 5);
-  Employee employee5 = new Employee("Иванов Степан Петрович", 75, 1);
-  Employee employee6 = new Employee("Голубева Наталья Петровна", 169, 3);
-  Employee employee7 = new Employee("Петров Василий Васильевич", 102, 4);
-  Employee employee8 = new Employee("Сидоров Сергей Петрович", 132, 5);
-  Employee employee9 = new Employee("Белова  Ольга Викторовна", 86, 2);
-  Employee employee10 = new Employee("Шустов Игорь Васильевич", 79, 3);
-  employeeBook[0] = employee1;
-  employeeBook[1] = employee2;
-  employeeBook[2] = employee3;
-  employeeBook[3] = employee4;
-  employeeBook[4] = employee5;
-  employeeBook[5] = employee6;
-  employeeBook[6] = employee7;
-  employeeBook[7] = employee8;
-  employeeBook[8] = employee9;
-  employeeBook[9] = employee10;
 
-  for (Employee employee:employeeBook) {
-   System.out.println(employee);
+  Employee[] employees = new Employee[10];
+
+
+  Employee employee1 = new Employee("Иванов Иван Петрович", 90, 1);
+  Employee employee2 = new Employee("Иванова  Мария Петровна", 70, 2);
+  Employee employee3 = new Employee("Петров Иван Иванович", 130, 1);
+  Employee employee4 = new Employee("Васильев Петр Иванович", 50, 5);
+  Employee employee5 = new Employee("Иванов Степан Петрович", 70, 1);
+  Employee employee6 = new Employee("Голубева Наталья Петровна", 160, 3);
+  Employee employee7 = new Employee("Петров Василий Васильевич", 110, 4);
+  Employee employee8 = new Employee("Сидоров Сергей Петрович", 130, 5);
+  Employee employee9 = new Employee("Белова  Ольга Викторовна", 80, 2);
+  Employee employee10 = new Employee("Шустов Игорь Васильевич", 70, 3);
+
+  employees[0] = employee1;
+  employees[1] = employee2;
+  employees[2] = employee3;
+  employees[3] = employee4;
+  employees[4] = employee5;
+  employees[5] = employee6;
+  employees[6] = employee7;
+  employees[7] = employee8;
+  employees[8] = employee9;
+  employees[9] = employee10;
+
+  printAllEmployeeBook(employees);
+  calculateSum(employees);
+  calculatMinSalary(employees);
+  calculatMaxSalay(employees);
+  printFullName(employees);
+ }
+
+ private static void printAllEmployeeBook(Employee[] employees) {
+  System.out.println("Полный список сотрудников: ");
+  for (int i = 0; i < employees.length; i++) {
+   System.out.println(employees[i]);
   }
  }
-}
+
+ private static void calculateSum() {
+  Employee[] employees = new Employee[10];
+  int sum = 0;
+  int i = 0;
+  for (Employee employee : employees) {
+   sum += employee.getSalary();
+   System.out.println("Сумма всех зарплат " + sum);
+   int averageSalary;
+   averageSalary = sum / employees.length;
+   System.out.println("средняя зарплата = " + averageSalary);
+  }
+ }
+
+ private static void calculateSum(Employee[] employees) {
+  int sum = 0;
+  int averageSalary = 0;
+  for (int i = 0; i < employees.length; i++) {
+   sum += employees[i].getSalary();
+   averageSalary = sum / employees.length;
+  }
+  System.out.println("Сумма всех зарплат " + sum);
+  System.out.println("средняя зарплата = " + averageSalary);
+ }
+
+
+ public static void calculatMinSalary (Employee[] employees) {
+  float minSalary = 200;
+  String fullNameMin = "";
+  for (int i = 0; i < employees.length; i++){
+   if (minSalary > employees[i].getSalary()) {
+    minSalary = employees[i].getSalary();
+    fullNameMin = employees[i].getFullName();}
+  }
+  System.out.println("Сотрудник " + fullNameMin + " получает минимальную зарплату, которая составляет " + minSalary + " рублей.");
+ }
+
+ public static void calculatMaxSalay (Employee[] employees ) {
+   int maxSalary = 0;
+  String fullNameMax = "";
+  for (int i = 1; i < employees.length; i++) {
+   if (maxSalary < employees[i].getSalary()) {
+    maxSalary = employees[i].getSalary();
+    fullNameMax = employees[i].getFullName();
+   }
+  }
+    System.out.println("Сотрудник " + fullNameMax + " получает самую высокую зарплату, которая составляет " + maxSalary + " рублей.");
+
+  }
+
+  public static void printFullName (Employee[] employees){
+
+   System.out.println("Ф.И.О. сотрудников:");
+   for (int i = 0; i < employees.length; i++) {
+
+    System.out.println(employees[i].getFullName());
+   }
+  }
+ }
