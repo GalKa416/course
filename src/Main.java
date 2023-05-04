@@ -50,7 +50,6 @@ public class Main {
   }
   System.out.println("Сумма всех зарплат " + sum);
  }
-
   private static void averageSalary (Employee[] employees) {
    int sum = 0;
    double averageSalary = 0;
@@ -60,8 +59,6 @@ public class Main {
    }
     System.out.println("средняя зарплата = " + averageSalary);
  }
-
-
 
  public static void calculatMinSalary (Employee[] employees) {
   float minSalary = 200;
