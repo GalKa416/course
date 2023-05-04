@@ -33,6 +33,7 @@ public class Main {
   calculatMinSalary(employees);
   calculatMaxSalay(employees);
   printFullName(employees);
+  averageSalary (employees);
  }
 
  private static void printAllEmployeeBook(Employee[] employees) {
@@ -42,29 +43,24 @@ public class Main {
   }
  }
 
- private static void calculateSum() {
-  Employee[] employees = new Employee[10];
-  int sum = 0;
-  int i = 0;
-  for (Employee employee : employees) {
-   sum += employee.getSalary();
-   System.out.println("Сумма всех зарплат " + sum);
-   int averageSalary;
-   averageSalary = sum / employees.length;
-   System.out.println("средняя зарплата = " + averageSalary);
-  }
- }
-
  private static void calculateSum(Employee[] employees) {
   int sum = 0;
-  int averageSalary = 0;
-  for (int i = 0; i < employees.length; i++) {
-   sum += employees[i].getSalary();
-   averageSalary = sum / employees.length;
+  for (Employee employee : employees) {
+   sum += employee.getSalary();
   }
   System.out.println("Сумма всех зарплат " + sum);
-  System.out.println("средняя зарплата = " + averageSalary);
  }
+
+  private static void averageSalary (Employee[] employees) {
+   int sum = 0;
+   double averageSalary = 0;
+   for (Employee employee : employees) {
+    sum += employee.getSalary();
+    averageSalary = (double) sum / employees.length;
+   }
+    System.out.println("средняя зарплата = " + averageSalary);
+ }
+
 
 
  public static void calculatMinSalary (Employee[] employees) {
